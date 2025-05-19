@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "LineNumberClock"
 include(":app")
- 
+include(":line_number_clock")
