@@ -35,7 +35,7 @@ class CircleDrawer {
         }
     }
 
-
+    //通过绘制参数绘制线段
     fun drawByCircleDrawParam(
         canvas: Canvas,
         param: CircleDrawParam
