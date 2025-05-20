@@ -9,7 +9,7 @@ class SplitLineComponents(
     private val array: Array<CircleDrawer>,
 ) : AbsComponents() {
 
-    override fun draw(canvas: Canvas, progress: Float) {
+    override fun draw(canvas: Canvas) {
         for ((index, circle) in array.withIndex()) {
             circle.drawBaseCircle(canvas)
             if (index == 1) {

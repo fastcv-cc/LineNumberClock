@@ -6,6 +6,6 @@ abstract class AbsComponents {
 
     abstract val type: ComponentsType
 
-    abstract fun draw(canvas: Canvas, progress: Float)
+    abstract fun draw(canvas: Canvas)
 
 }

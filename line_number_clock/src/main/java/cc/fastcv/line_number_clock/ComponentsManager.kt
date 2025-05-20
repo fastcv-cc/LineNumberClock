@@ -77,18 +77,18 @@ class ComponentsManager {
         val minute = calendar[Calendar.MINUTE]
         val second = calendar[Calendar.SECOND]
         val drawProgress = (progress + 1) * 1f / 1000
-        hourComponents.setNumber(hour)
-        minuteComponents.setNumber(minute)
-        secondComponents.setNumber(second)
-        drawComponents(canvas, drawProgress)
+        hourComponents.setNumberAndProgress(hour,drawProgress)
+        minuteComponents.setNumberAndProgress(minute,drawProgress)
+        secondComponents.setNumberAndProgress(second,drawProgress)
+        drawComponents(canvas)
     }
 
-    private fun drawComponents(canvas: Canvas, drawProgress: Float) {
-        hourComponents.draw(canvas, drawProgress)
-        split1Components.draw(canvas, drawProgress)
-        minuteComponents.draw(canvas, drawProgress)
-        split2Components.draw(canvas, drawProgress)
-        secondComponents.draw(canvas, drawProgress)
+    private fun drawComponents(canvas: Canvas) {
+        hourComponents.draw(canvas)
+        split1Components.draw(canvas)
+        minuteComponents.draw(canvas)
+        split2Components.draw(canvas)
+        secondComponents.draw(canvas)
     }
 
     private fun countCirclePosition() {

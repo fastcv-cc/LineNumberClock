@@ -60,12 +60,13 @@ class LineNumberClockView : View, DefaultLifecycleObserver {
     private val handler = Handler(Looper.getMainLooper())
 
     private val showRunnable = Runnable {
+        Log.d("LineNumberClockView", "System.currentTimeMillis() : ${System.currentTimeMillis()}")
         showInAnim()
         showNext()
     }
 
     private fun showNext() {
-        handler.postDelayed(showRunnable, 1000)
+        handler.postDelayed(showRunnable, 1000L - System.currentTimeMillis() % 1000L)
     }
 
     fun bindLifecycle(lifecycle: Lifecycle) {
@@ -86,13 +87,11 @@ class LineNumberClockView : View, DefaultLifecycleObserver {
 
     override fun onResume(owner: LifecycleOwner) {
         super.onResume(owner)
-        Log.d("xcl_debug", "onResume: ")
-        postDelayed(showRunnable, 1000L - Calendar.getInstance().get(Calendar.MILLISECOND))
+        postDelayed(showRunnable, 1000L - System.currentTimeMillis() % 1000L)
     }
 
     override fun onStop(owner: LifecycleOwner) {
         super.onStop(owner)
-        Log.d("xcl_debug", "onStop: ")
         handler.removeCallbacks(showRunnable)
     }
 

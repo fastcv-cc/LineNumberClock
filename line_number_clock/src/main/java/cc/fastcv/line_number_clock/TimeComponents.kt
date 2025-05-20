@@ -1,6 +1,7 @@
 package cc.fastcv.line_number_clock
 
 import android.graphics.Canvas
+import android.util.Log
 
 class TimeComponents(private val array: Array<Array<CircleDrawer>>) :
     AbsComponents() {
@@ -11,21 +12,23 @@ class TimeComponents(private val array: Array<Array<CircleDrawer>>) :
     private var newLeftNumber: AbsNumberDrawParam? = null
     private var lastRightNumber: AbsNumberDrawParam? = null
     private var newRightNumber: AbsNumberDrawParam? = null
+    private var drawProgress:Float = 0f
 
-    fun setNumber(number: Int) {
+    fun setNumberAndProgress(number: Int, process: Float) {
         newLeftNumber = transformNumber(number / 10)
         newRightNumber = transformNumber(number % 10)
+        drawProgress = process
     }
 
-    override fun draw(canvas: Canvas, progress: Float) {
-        if (progress == 1f) {
+    override fun draw(canvas: Canvas) {
+        if (drawProgress == 1f) {
             lastLeftNumber = newLeftNumber
             lastRightNumber = newRightNumber
         }
         val leftTempNumber: AbsNumberDrawParam =
-            lastLeftNumber!!.transition(newLeftNumber!!, progress)
+            lastLeftNumber!!.transition(newLeftNumber!!, drawProgress)
         val rightTempNumber: AbsNumberDrawParam =
-            lastRightNumber!!.transition(newRightNumber!!, progress)
+            lastRightNumber!!.transition(newRightNumber!!, drawProgress)
         val leftNumber = NumberProxy(
             arrayOf(
                 arrayOf(array[0][0], array[0][1]),
@@ -42,7 +45,6 @@ class TimeComponents(private val array: Array<Array<CircleDrawer>>) :
             ), rightTempNumber
         )
         rightNumber.draw(canvas)
-
     }
 
     private fun transformNumber(i: Int): AbsNumberDrawParam? {
