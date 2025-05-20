@@ -51,7 +51,7 @@ publishing {
             afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
             groupId = "cc.fastcv"
             artifactId = "line-number-clock"
-            version = "1.0.0"
+            version = "1.0.1"
 
             pom {
                 name = "LineNumberClock"
