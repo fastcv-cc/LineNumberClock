@@ -44,3 +44,8 @@ implementation("cc.fastcv:line-number-clock:1.0.1")
 
 ![img](./assets/1747639094216-69c3e474-c0a6-4247-bb09-272ce3e5125b.gif)
 
+
+我拉了个安卓技术讨论群，感兴趣的可以加我，我拉你进群
+
+<img src="./assets/img.png" alt="image-20250610153910261" />
+
