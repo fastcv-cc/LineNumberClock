@@ -11,41 +11,12 @@ import android.view.View
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import java.util.Calendar
 
-class LineNumberClockView : View, DefaultLifecycleObserver {
-
-    constructor(context: Context?) : super(context) {
-        initParams(context, null)
-    }
-
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
-        initParams(context, attrs)
-    }
-
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
-        initParams(context, attrs)
-    }
-
-    constructor(
-        context: Context?,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int
-    ) : super(context, attrs, defStyleAttr, defStyleRes) {
-        initParams(context, attrs)
-    }
+class LineNumberClockView @JvmOverloads constructor(context: Context,attrs: AttributeSet? = null, defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr), DefaultLifecycleObserver {
 
     private val manager = ComponentsManager()
 
-    private fun initParams(context: Context?, attrs: AttributeSet?) {
-        if (context == null) {
-            return
-        }
+    init {
         manager.initConfigureInfo(context, attrs)
     }
 

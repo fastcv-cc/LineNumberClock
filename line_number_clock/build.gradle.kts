@@ -56,7 +56,7 @@ publishing {
             pom {
                 name = "LineNumberClock"
                 description = "line number clock"
-                url = ""
+                url = "https://github.com/fastcv-cc/LineNumberClock"
                 licenses {
                     license {
                         name = "The Apache License, Version 2.0"
